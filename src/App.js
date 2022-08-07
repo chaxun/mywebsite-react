@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { useLocation, Routes, Route } from "react-router-dom";
 
-function App() {
+import Main from "./routes/Main";
+import Me from "./routes/Me";
+import Gwen from "./routes/Gwen";
+import Shang from "./routes/Shang";
+import NoPage from "./routes/NoPage";
+
+
+const titles = {
+  "/me": "Xun's Homepage",
+  "/gwen": "Gwen's Homepage",
+  "/shangren": "Shang's Homepage",
+};
+
+export default function App() {
+  let location = useLocation();
+  useEffect(() => {
+    document.title = titles[location.pathname] ?? "Chaxun";
+  }, [location]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="me" element={<Me />} />
+      <Route path="gwen" element={<Gwen />} />
+      <Route path="shangren" element={<Shang />} />
+      <Route path="*" element={<NoPage />} />
+    </Routes>
   );
 }
-
-export default App;
