@@ -16,8 +16,8 @@ import {
 import { faFaceGrinSquintTears } from "@fortawesome/free-regular-svg-icons";
 
 import "./Shang.css";
-import FontIcon from "../components/UI/FontIcon";
-import Paper from "../components/UI/Paper";
+import FontIcon from "../components/UI/FontIcon/FontIcon";
+import Paper from "../components/UI/Paper/Paper";
 
 import shang1 from "../photos/shang.jpg";
 import gwen1 from "../photos/gwen1.jpg";
@@ -26,7 +26,7 @@ import cvpdf from "../pdfs/cv_ShangRen.pdf";
 
 const Shang = () => {
   return (
-    <div className="font-link" style={{ backgroundColor: "#f1f1f1" }}>
+    <div className="font-link-shang" style={{ backgroundColor: "#f1f1f1" }}>
       {/* Page Container */}
       <div className="w3-content" style={{ maxWidth: "1500px" }}>
         {/* The Grid */}

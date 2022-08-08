@@ -1,0 +1,49 @@
+.card {
+  text-align: left;
+  margin: 100px 20px;
+}
+
+.school {
+  font-size: 24px;
+  font-weight: bold;
+  float: left;
+}
+
+.date {
+  font-size: 24px;
+  font-style: italic;
+  float: right;
+  padding-right: 10px;
+}
+
+.text {
+  font-size: 20px;
+}
+
+a.hover {
+  text-decoration: none;
+}
+a.hover:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: 40px 10px;
+  }
+  .school {
+    display: inline-block;
+    font-size: 18px;
+  }
+  .date {
+    display: inline-block;
+    font-size: 16px;
+    padding-right: 0;
+  }
+  .text {
+    font-size: 14px;
+  }
+  ul {
+    padding-left: 6px;
+  }
+}

@@ -4,7 +4,7 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <div className="font-link light-green">
+    <div className="font-link-main light-green">
       <div className="w3-content">
         <div className="w3-row-padding">
 

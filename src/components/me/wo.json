@@ -1,0 +1,27 @@
+{
+  "mainpage": "主页",
+  "language": "中｜英",
+  "name": "查珣",
+  "position": "Data Scientist",
+  "company": "现就职于ICW Group (远程工作)",
+  "experience": "在2021年8月获得凝聚态物理PhD学位",
+  "education": "教育背景",
+  "github": "GitHub",
+  "email": "邮箱：",
+  "bilibili": "来看我的B站：",
+  "page1": {
+    "item1": "爱荷华州立大学",
+    "item1_line1": "凝聚态物理PhD",
+    "item1_line2": "研究方向：对nanoparticle superlattices的分子动力学模拟",
+    "item1_line3": "这是我的Google Scholar主页",
+    "item2": "武汉大学",
+    "item2_line1": "物理学本科",
+    "item2_line2": "大四在英国国王学院交流过两个学期"
+  },
+  "page2": {
+    "item1": "我的个人网站",
+    "item1_line1": "本网站。",
+    "item2": "AA制 App",
+    "item2_line1": "给两个人的记账App。"
+  }
+}

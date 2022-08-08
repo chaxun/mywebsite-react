@@ -1,0 +1,27 @@
+{ 
+  "mainpage": "Main Page",
+  "language": "zh | en",
+  "name": "Xun Zha",
+  "position": "Data Scientist",
+  "company": "I currently work remotely at ICW Group",
+  "experience": "I got my PhD in Physics in Aug. 2021",
+  "education": "Education",
+  "github": "GitHub",
+  "email": "Contact me: ",
+  "bilibili": "Follow me on Bilibili: ",
+  "page1": {
+    "item1": "Iowa State University",
+    "item1_line1": "PhD in Condensed Matter Physics",
+    "item1_line2": "Worked on the molecular dynamics simulations for nanoparticle superlattices",
+    "item1_line3": "See my Google Scholar Homepage for publications",
+    "item2": "Wuhan University",
+    "item2_line1": "Bachelor of Science, Physics",
+    "item2_line2": "Was an exchange student at King's College London for 9 months"
+  },
+  "page2": {
+    "item1": "My Personal Website",
+    "item1_line1": "This website.",
+    "item2": "Bookkeeper App",
+    "item2_line2": "Show expense summary in diagrams."
+  }
+}

@@ -1,0 +1,26 @@
+.card {
+  margin: 100px 20px;
+  padding: 20px 20px 30px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 18px;
+}
+
+a.hover {
+  text-decoration: none;
+}
+a.hover:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: 40px 20px;
+  }
+}

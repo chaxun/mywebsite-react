@@ -11,8 +11,8 @@ export class Stack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string) {
     super(scope, id, {
       env: {
-        account: "437898606796",
-        region: "us-east-1",
+        account: process.env.AWS_ACCOUNT,
+        region: process.env.AWS_REGION,
       },
     });
 
