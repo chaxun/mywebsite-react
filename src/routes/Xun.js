@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import classes from "./Xun.module.css";
 import Education from "../components/me/Education";
@@ -8,41 +7,14 @@ import Toggle from "../components/UI/Toggle/Toggle";
 import Card from "../components/UI/Card/Card";
 import Button from "../components/UI/Button/Button";
 
-import Json1 from "../components/me/wo.json";
-import Json2 from "../components/me/me.json";
-import photo from "../gifs/gwen.gif";
+import gwen from "../gifs/gwen.gif";
+import gwen1 from "../gifs/gwen1.gif";
+import gwen2 from "../gifs/gwen2.gif";
 
-const Xun = () => {
-  const [lanToggle, setLanToggle] = useState(true);
-  const [data, setData] = useState(Json1);
-  const toggleOnClick = () => {
-    if (lanToggle) {
-      setLanToggle(false);
-      setData(Json2);
-    } else {
-      setLanToggle(true);
-      setData(Json1);
-    }
-  };
-
-  const [country, setCountry] = useState("");
-  // const [ip, setIP] = useState("");
-  // const [date, setDate] = useState("");
-  const getData = async () => {
-    const res = await axios.get("https://api.country.is");
-    // const resDate = await axios.get("https://api.country.is/version")
-    setCountry(res.data.country);
-    // setIP(res.data.ip)
-    // setDate(resDate.data.updatedOn)
-  };
-  useEffect(() => {
-    getData();
-    if (country === "US") {
-      setLanToggle(false);
-      setData(Json2);
-    }
-  }, [country]);
-
+const Xun = (props) => {
+  const data = props.data;
+  const lanToggle = props.lanToggle;
+  const toggleOnClick = props.toggleOnClick;
 
   const [pageToggle, setPageToggle] = useState("main");
   const toggleOnSelectMain = () => {
@@ -54,6 +26,17 @@ const Xun = () => {
   const toggleOnSelectGitHub = () => {
     setPageToggle("github");
   };
+
+  const [gif, setGif] = useState(gwen);
+  const reloadGif = () => {
+    setGif(gwen1);
+    setTimeout(() => {
+      setGif(gwen);
+    }, 0);
+  };
+  useEffect(() => {
+    reloadGif();
+  }, []);
 
   return (
     <div className={classes.divBackground}>
@@ -89,7 +72,15 @@ const Xun = () => {
           <Card>
             <div className="w3-container">
               <div className="w3-third">
-                <img className={classes.animatedGif} src={photo} alt="Gwen" />
+                <div className={classes.gif}>
+                  <img
+                    className={classes.animatedGif}
+                    src={gif}
+                    alt="Gwen"
+                    onMouseOver={()=>{setGif(gwen2)}}
+                    onMouseOut={()=>{setGif(gwen1)}}
+                  />
+                </div>
               </div>
               <div className="w3-twothird" style={{ padding: "10px" }}>
                 <p style={{ fontSize: "30px" }}>{data.name}</p>

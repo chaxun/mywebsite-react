@@ -12,7 +12,6 @@
 
 .alignLeft {
   margin-left: 10px;
-  /* margin-right: auto; */
 }
 
 .alignRight {
@@ -26,7 +25,7 @@
 }
 
 img.animatedGif {
-  width: 98%;
+  width: 100%;
   height: auto;
 }
 
@@ -47,5 +46,18 @@ footer {
 @media only screen and (max-width: 600px) {
   footer {
     display: none;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .gif {
+    padding-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .gif {
+    padding-top: 10px;
   }
 }
