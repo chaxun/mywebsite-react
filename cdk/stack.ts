@@ -4,9 +4,6 @@ import * as acm from "@aws-cdk/aws-certificatemanager";
 import * as cloudfront from "@aws-cdk/aws-cloudfront";
 import * as deploy from "@aws-cdk/aws-s3-deployment";
 
-const DOMAIN_NAME = "chaxuniverse.com";
-const WWW_DOMAIN_NAME = "www." + DOMAIN_NAME;
-
 export class Stack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string) {
     super(scope, id, {
@@ -17,17 +14,26 @@ export class Stack extends cdk.Stack {
     });
 
     const siteBucket = new s3.Bucket(this, "SiteBucket", {
-      bucketName: WWW_DOMAIN_NAME,
+      bucketName: process.env.WWW_DOMAIN_NAME,
       websiteIndexDocument: "index.html",
+      websiteErrorDocument: "index.html",
       publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
     });
 
     const siteCertificate = new acm.Certificate(this, "WebCert", {
-      domainName: WWW_DOMAIN_NAME,
-      subjectAlternativeNames: [DOMAIN_NAME],
+      domainName: process.env.WWW_DOMAIN_NAME,
+      subjectAlternativeNames: [process.env.DOMAIN_NAME],
       validation: acm.CertificateValidation.fromDns(),
     });
+
+    const customErrorResponseProperty: cloudfront.CfnDistribution.CustomErrorResponseProperty =
+      {
+        errorCode: 400,
+        responseCode: 200,
+        responsePagePath: "/index.html",
+      };
 
     const siteDistribution = new cloudfront.CloudFrontWebDistribution(
       this,
@@ -36,7 +42,7 @@ export class Stack extends cdk.Stack {
         viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
           siteCertificate,
           {
-            aliases: [WWW_DOMAIN_NAME],
+            aliases: [process.env.WWW_DOMAIN_NAME],
             securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
             sslMethod: cloudfront.SSLMethod.SNI,
           }
@@ -54,6 +60,7 @@ export class Stack extends cdk.Stack {
             ],
           },
         ],
+        errorConfigurations: [customErrorResponseProperty],
       }
     );
 

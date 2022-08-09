@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 import * as cdk from "@aws-cdk/core";
 import { Stack } from "./stack";
 
