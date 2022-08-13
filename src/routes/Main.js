@@ -10,17 +10,17 @@ const Main = () => {
 
           <div className="center-box">
             <div className="w3-container font-effect-fire-animation center-text">
-              <Link to="/me" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1" }}>
+              <Link to="/me" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1)" }}>
                 Me
               </Link>
             </div>
             <div className="w3-container font-effect-fire-animation center-text">
-              <Link to="/gwen" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1" }}>
+              <Link to="/gwen" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1)" }}>
                 My Cat
               </Link>
             </div>
             <div className="w3-container font-effect-fire-animation center-text">
-              <Link to="/shangren" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1" }}>
+              <Link to="/shangren" className="a-shadow" style={{ backgroundColor: "rgb(255,140,0,0.1)" }}>
                 My Roommate
               </Link>
             </div>

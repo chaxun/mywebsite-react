@@ -30,7 +30,7 @@ export default function App() {
   );
   const getCountry = async () => {
     const res = await axios.get("https://api.country.is");
-    console.log(res.data);
+    // console.log(res.data);
     if (res.data.country === "US") {
       sessionStorage.setItem("lan", 2);
       setLanToggle(2);
