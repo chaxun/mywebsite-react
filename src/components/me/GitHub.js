@@ -7,7 +7,7 @@ const GitHub = (props) => {
     <div className="w3-content">
       <Card className={classes.card}>
         <div className="w3-container">
-          <a className={classes.hover} href="https://github.com/chaxun/mywebsite">
+          <a className={classes.hover} href="https://github.com/chaxun/mywebsite-react">
           <p className={classes.title}>{data.item1}</p>
           </a>
           <p className={classes.text}>{data.item1_line1}</p>

@@ -15,9 +15,7 @@ export class Stack extends cdk.Stack {
 
     const siteBucket = new s3.Bucket(this, "SiteBucket", {
       bucketName: process.env.WWW_DOMAIN_NAME,
-      websiteIndexDocument: "index.html",
-      websiteErrorDocument: "index.html",
-      publicReadAccess: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
@@ -27,6 +25,23 @@ export class Stack extends cdk.Stack {
       subjectAlternativeNames: [process.env.DOMAIN_NAME],
       validation: acm.CertificateValidation.fromDns(),
     });
+
+    const viewerCertificate = cloudfront.ViewerCertificate.fromAcmCertificate(
+      siteCertificate,
+      {
+        aliases: [process.env.WWW_DOMAIN_NAME],
+        securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+        sslMethod: cloudfront.SSLMethod.SNI,
+      }
+    );
+
+    const originAccessIdentity = new cloudfront.OriginAccessIdentity(
+      this,
+      "MyWebsiteOriginAccessIdentity",
+      {
+        comment: "MyWebsite",
+      }
+    );
 
     const customErrorResponseProperty: cloudfront.CfnDistribution.CustomErrorResponseProperty =
       {
@@ -39,19 +54,11 @@ export class Stack extends cdk.Stack {
       this,
       "SiteDistribution",
       {
-        viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
-          siteCertificate,
-          {
-            aliases: [process.env.WWW_DOMAIN_NAME],
-            securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
-            sslMethod: cloudfront.SSLMethod.SNI,
-          }
-        ),
         originConfigs: [
           {
-            customOriginSource: {
-              domainName: siteBucket.bucketWebsiteDomainName,
-              originProtocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+            s3OriginSource: {
+              s3BucketSource: siteBucket,
+              originAccessIdentity: originAccessIdentity,
             },
             behaviors: [
               {
@@ -60,6 +67,7 @@ export class Stack extends cdk.Stack {
             ],
           },
         ],
+        viewerCertificate: viewerCertificate,
         errorConfigurations: [customErrorResponseProperty],
       }
     );
