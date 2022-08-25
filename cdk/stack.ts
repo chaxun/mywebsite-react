@@ -16,6 +16,8 @@ export class Stack extends cdk.Stack {
     const siteBucket = new s3.Bucket(this, "SiteBucket", {
       bucketName: process.env.WWW_DOMAIN_NAME,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      // websiteIndexDocument: "index.html",
+      // websiteErrorDocument: "index.html",
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
@@ -43,9 +45,16 @@ export class Stack extends cdk.Stack {
       }
     );
 
-    const customErrorResponseProperty: cloudfront.CfnDistribution.CustomErrorResponseProperty =
+    const customErrorResponseProperty1: cloudfront.CfnDistribution.CustomErrorResponseProperty =
       {
         errorCode: 400,
+        responseCode: 200,
+        responsePagePath: "/index.html",
+      };
+
+    const customErrorResponseProperty2: cloudfront.CfnDistribution.CustomErrorResponseProperty =
+      {
+        errorCode: 403,
         responseCode: 200,
         responsePagePath: "/index.html",
       };
@@ -68,7 +77,10 @@ export class Stack extends cdk.Stack {
           },
         ],
         viewerCertificate: viewerCertificate,
-        errorConfigurations: [customErrorResponseProperty],
+        errorConfigurations: [
+          customErrorResponseProperty1,
+          customErrorResponseProperty2,
+        ],
       }
     );
 

@@ -110,7 +110,7 @@ const Xun = (props) => {
         className="w3-container w3-light-green w3-center"
         style={{ padding: "5px" }}
       >
-        {lanToggle ? (
+        {lanToggle === 1 ? (
           <>
             <div className="w3-half">
               <div className="w3-container" style={{ color: "white" }}>

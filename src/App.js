@@ -30,7 +30,6 @@ export default function App() {
   );
   const getCountry = async () => {
     const res = await axios.get("https://api.country.is");
-    // console.log(res.data);
     if (res.data.country === "US") {
       sessionStorage.setItem("lan", 2);
       setLanToggle(2);
@@ -40,6 +39,8 @@ export default function App() {
       setLanToggle(1);
       setData(Json1);
     }
+    const body = JSON.stringify({"ip": res.data.ip})
+    await axios.post("https://gbpxzr58wj.execute-api.us-east-1.amazonaws.com/prod/location", body);
   };
   useEffect(() => {
     const lanStorage = sessionStorage.getItem("lan");
