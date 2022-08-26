@@ -3,7 +3,8 @@
 ## Deploy locally
 
 ```bash
-cd frontend
+cd application/
+npm install
 npm start
 ```
 
@@ -12,19 +13,21 @@ npm start
 1. Build
 
 ```
-cd frontend
+cd application/
 npm run build
 ```
 
 2. Deploy
 
 ```bash
+cd infrastructure/
 cdk deploy
 ```
 
 3. Clean up
 
 ```bash
+cd infrastructure/
 cdk destroy
 ```
 
