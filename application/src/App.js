@@ -39,8 +39,9 @@ export default function App() {
       setLanToggle(1);
       setData(Json1);
     }
-    const body = JSON.stringify({"ip": res.data.ip})
-    await axios.post("https://gbpxzr58wj.execute-api.us-east-1.amazonaws.com/prod/location", body);
+    const path = window.location.pathname || "/";
+    const body = { ip: res.data.ip, path: path };
+    await axios.post("https://api.chaxuniverse.com/location/save", body);
   };
   useEffect(() => {
     const lanStorage = sessionStorage.getItem("lan");
