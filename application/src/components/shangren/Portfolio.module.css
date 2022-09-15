@@ -1,0 +1,15 @@
+.nie {
+  margin-left: 5px;
+  margin-right: 0px;
+  font-size: 15px;
+  color: #2196f3;
+}
+
+.pang {
+  margin-left: 5px;
+  margin-right: 0px;
+  font-size: 15px;
+  color: #2196f3;
+  --fa-bounce-rebound: 0;
+  --fa-animation-duration: 0.2s;
+}

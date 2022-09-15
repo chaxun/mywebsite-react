@@ -1,0 +1,12 @@
+.customButton {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.6ex;
+  transition: all 0.2s ease-out 0s;
+}
+.customButton.active {
+  transition: all 0.2s ease-in 1s;
+}
+.customButton:hover {
+  transform: scale(1.1);
+}

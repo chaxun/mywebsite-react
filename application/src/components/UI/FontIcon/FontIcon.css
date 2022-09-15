@@ -1,22 +1,9 @@
 .font-icon {
   margin-right: 16px;
   font-size: 18px;
-  color: #2196F3;
-}
-
-.font-icon-right {
-  margin-left: 4px;
-  margin-right: 0px;
-  font-size: 14px
+  color: #2196f3;
 }
 
 .font-icon-large {
-  font-size: 32px
-}
-
-.font-icon-black {
-  margin-left: 6px;
-  margin-right: 0;
-  font-size: 16px;
-  color: #000000;
+  font-size: 32px;
 }

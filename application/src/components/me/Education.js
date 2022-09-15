@@ -16,10 +16,9 @@ const Education = (props) => {
               <p className={classes.text}>{data.item1_line1}</p>
               <p className={classes.text}>{data.item1_line2}</p>
               <a
-                className={classes.hover}
                 href="https://scholar.google.com/citations?user=HC7EnzMAAAAJ&hl=en&oi=ao"
               >
-                <p className={classes.text}>{data.item1_line3}</p>
+                <span className={classes.un}>{data.item1_line3}</span>
               </a>
             </li>
             <br />

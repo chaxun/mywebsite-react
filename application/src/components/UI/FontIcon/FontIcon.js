@@ -6,6 +6,8 @@ function FontIcon(props) {
   return (
     <FontAwesomeIcon
       icon={props.icon}
+      onClick={props.onClick}
+      shake={props.shake}
       className={classes}
       fixedWidth
     />

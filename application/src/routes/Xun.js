@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./Xun.module.css";
 import Education from "../components/me/Education";
@@ -77,8 +78,12 @@ const Xun = (props) => {
                     className={classes.animatedGif}
                     src={gif}
                     alt="Gwen"
-                    onMouseOver={()=>{setGif(gwen2)}}
-                    onMouseOut={()=>{setGif(gwen1)}}
+                    onMouseOver={() => {
+                      setGif(gwen2);
+                    }}
+                    onMouseOut={() => {
+                      setGif(gwen1);
+                    }}
                   />
                 </div>
               </div>
@@ -94,11 +99,22 @@ const Xun = (props) => {
           <div className="w3-container">
             <div className="w3-half">
               <Button onClick={toggleOnSelectEducation}>
+                <FontAwesomeIcon
+                  icon="fa-graduation-cap"
+                  style={{ marginRight: "5px" }}
+                />
+
                 {data.education}
               </Button>
             </div>
             <div className="w3-half">
-              <Button onClick={toggleOnSelectGitHub}>GitHub</Button>
+              <Button onClick={toggleOnSelectGitHub}>
+                <FontAwesomeIcon
+                  icon={["fab", "github"]}
+                  style={{ marginRight: "5px" }}
+                />
+                GitHub
+              </Button>
             </div>
           </div>
         </div>
@@ -114,6 +130,11 @@ const Xun = (props) => {
           <>
             <div className="w3-half">
               <div className="w3-container" style={{ color: "white" }}>
+                <FontAwesomeIcon
+                  icon="fa-envelope"
+                  style={{ marginRight: "5px" }}
+                />
+
                 {data.email}
                 <a
                   className={classes.hover}
@@ -127,6 +148,10 @@ const Xun = (props) => {
             </div>
             <div className="w3-half">
               <div className="w3-container" style={{ color: "white" }}>
+                <FontAwesomeIcon
+                  icon={["fab", "bilibili"]}
+                  style={{ marginRight: "5px" }}
+                />
                 {data.bilibili}
                 <a
                   className={classes.hover}
@@ -139,6 +164,10 @@ const Xun = (props) => {
           </>
         ) : (
           <div className="w3-container" style={{ color: "white" }}>
+            <FontAwesomeIcon
+              icon="fa-envelope"
+              style={{ marginRight: "5px" }}
+            />
             {data.email}
             <a
               className={classes.hover}

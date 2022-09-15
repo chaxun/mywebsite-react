@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Main from "./routes/Main";
-import Xun from "./routes/Xun";
-import Gwen from "./routes/Gwen";
-import Shang from "./routes/Shang";
 
 import Json1 from "./components/me/wo.json";
 import Json2 from "./components/me/me.json";
+
+const Xun = React.lazy(() => import('./routes/Xun'));
+const Gwen = React.lazy(() => import('./routes/Gwen'));
+const Shang = React.lazy(() => import('./routes/Shang'));
 
 const titles = {
   "/me": "My Homepage",
