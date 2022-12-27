@@ -14,6 +14,7 @@ npm start
 
 ```
 cd application/
+npm install
 npm run build
 ```
 
@@ -21,6 +22,7 @@ npm run build
 
 ```bash
 cd infrastructure/
+npm install
 cdk deploy
 ```
 

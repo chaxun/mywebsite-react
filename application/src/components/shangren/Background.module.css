@@ -1,0 +1,36 @@
+.divPlanet {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  visibility: hidden;
+}
+
+.divPlanet img {
+  z-index: -1;
+  position: absolute;
+  margin-top: -25%;
+  width: 140%;
+  animation: rotation 250s infinite linear;
+  visibility: hidden;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .divPlanet {
+    visibility: visible;
+  }
+  .divPlanet img {
+    background-image: linear-gradient(transparent, white);
+    margin-top: -24%;
+    width: 130%;
+    visibility: visible;
+  }
+}

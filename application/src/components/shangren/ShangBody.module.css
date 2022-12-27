@@ -1,0 +1,60 @@
+.divContent {
+  font-family: "Roboto", sans-serif;
+  padding-top: -10%;
+}
+
+.divContentInner {
+  padding-top: 2%;
+  background: rgb(86, 157, 223, 0.7);
+}
+
+@media only screen and (min-width: 600px) {
+  .divContent {
+    padding-top: 20%;
+  }
+  .divContentInner {
+    padding-top: -10%;
+    background: linear-gradient(
+      rgb(0, 0, 0, 0),
+      rgb(86, 157, 223, 0.1),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7)
+    );
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .divContentInner {
+    background: linear-gradient(
+      rgb(0, 0, 0, 0),
+      rgb(86, 157, 223, 0.1),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7),
+      rgb(86, 157, 223, 0.7)
+    );
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .divContentInner {
+    background: linear-gradient(
+      rgb(0, 0, 0, 0),
+      rgb(86, 157, 223, 0.1),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223),
+      rgb(86, 157, 223, 0.7)
+    );
+  }
+}

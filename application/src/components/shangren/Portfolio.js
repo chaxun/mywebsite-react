@@ -125,6 +125,8 @@ export default function Portolio() {
           </a>
         </p>
       </div>
+
+      <hr />
     </div>
   );
 }

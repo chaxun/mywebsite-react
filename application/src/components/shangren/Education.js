@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceGrinSquintTears } from "@fortawesome/free-regular-svg-icons";
 
 import classes from "./Education.module.css";
 import FontIcon from "../UI/FontIcon/FontIcon";
 
-const Education = (props) => {
+const Education = () => {
+  const navigate = useNavigate();
   const [isHoverPano, setIsHoverPano] = useState(false);
   const [isTears, setIsTears] = useState(false);
   const handleClick = () => {
-    props.setShowPano(true);
+    navigate("/shangren/rutgers");
   };
   return (
     <div className="w3-container w3-card w3-white w3-margin-bottom">
@@ -73,7 +76,7 @@ const Education = (props) => {
           schools
           <FontAwesomeIcon
             icon={faFaceGrinSquintTears}
-            onClick={()=>setIsTears(!isTears)}
+            onClick={() => setIsTears(!isTears)}
             bounce={isTears}
             className={classes.tears}
           />

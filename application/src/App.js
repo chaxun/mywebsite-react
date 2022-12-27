@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import Main from "./routes/Main";
-
 import Json1 from "./components/me/wo.json";
 import Json2 from "./components/me/me.json";
+import Main from "./routes/Main";
 
-const Xun = React.lazy(() => import('./routes/Xun'));
-const Gwen = React.lazy(() => import('./routes/Gwen'));
-const Shang = React.lazy(() => import('./routes/Shang'));
+const Xun = React.lazy(() => import("./routes/Xun"));
+const Gwen = React.lazy(() => import("./routes/Gwen"));
+const Shang = React.lazy(() => import("./routes/Shang"));
+const ShangRutgers = React.lazy(() => import("./routes/ShangRutgers"));
+const JohnsonParkPano = React.lazy(() => import("./routes/JohnsonPark"));
 
 const titles = {
   "/me": "My Homepage",
@@ -77,6 +78,8 @@ export default function App() {
       />
       <Route path="/gwen" element={<Gwen />} />
       <Route path="/shangren" element={<Shang />} />
+      <Route path="/shangren/rutgers" element={<ShangRutgers />} />
+      <Route path="/johnson_park" element={<JohnsonParkPano />} />
       <Route path="*" element={<Main />} />
     </Routes>
   );
