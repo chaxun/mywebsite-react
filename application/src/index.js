@@ -16,7 +16,7 @@ import {
   faBowlRice,
   faMugHot,
   faEarthAsia,
-  faDownload,
+  faEye,
   faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,7 +37,7 @@ library.add(
   faBowlRice,
   faMugHot,
   faEarthAsia,
-  faDownload,
+  faEye,
   faPencil
 );
 

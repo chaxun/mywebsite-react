@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./Portfolio.module.css";
 import FontIcon from "../UI/FontIcon/FontIcon";
 import shang1 from "../../photos/shang.jpg";
-import cvpdf from "../../pdfs/cv_ShangRen.pdf";
 
 export default function Portolio() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/shangren/cv");
+  };
+
   const [isBaby, setIsBaby] = useState(false);
   const [isNie, setIsNie] = useState(false);
   const [isPangFan, setIsPangFan] = useState(false);
@@ -119,10 +124,12 @@ export default function Portolio() {
         <hr />
 
         <p className="w3-large w3-text-theme">
-          <FontIcon icon="fa-download" />
-          <a className="hover" href={cvpdf} download>
-            Download my CV
-          </a>
+          <span className="hover" onClick={handleClick}>
+            <b>
+              <FontIcon icon="fa-eye" />
+              View My CV
+            </b>
+          </span>
         </p>
       </div>
 

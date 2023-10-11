@@ -31,3 +31,12 @@ a.disabled {
   color: #ccc;
   cursor: not-allowed;
 }
+
+span.hover {
+  text-decoration: none;
+  cursor: pointer!;
+}
+span.hover:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

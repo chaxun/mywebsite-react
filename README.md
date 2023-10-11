@@ -12,7 +12,7 @@ npm start
 
 1. Build
 
-```
+```bash
 cd application/
 npm install
 npm run build

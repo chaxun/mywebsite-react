@@ -9,12 +9,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-photo-sphere-viewer": "^2.1.4",
+    "react-photo-sphere-viewer": "^3.3.5-psv5.1.4",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-string-replace": "^1.1.0"
@@ -42,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
