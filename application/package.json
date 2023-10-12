@@ -14,7 +14,7 @@
     "axios": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-photo-sphere-viewer": "^3.3.5-psv5.1.4",
+    "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-string-replace": "^1.1.0"

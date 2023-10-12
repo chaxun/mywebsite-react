@@ -25,6 +25,7 @@ a.hover {
 }
 a.hover:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 a.disabled {
   pointer-events: none;
@@ -34,7 +35,6 @@ a.disabled {
 
 span.hover {
   text-decoration: none;
-  cursor: pointer!;
 }
 span.hover:hover {
   text-decoration: underline;

@@ -1,5 +1,8 @@
 import React from "react";
-import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
+import {
+  ReactPhotoSphereViewer,
+  // AutorotatePlugin,
+} from "react-photo-sphere-viewer";
 
 import classes from "./Panorama.module.css";
 
@@ -7,14 +10,15 @@ const Panorama = (props) => {
   const panoPhoto = props.panoPhoto;
   const returnHome = props.returnHome;
   const photoSphereRef = React.createRef();
+  // const plugins = [[AutorotatePlugin, { autorotateSpeed: "2rpm" }]];
   return (
     <ReactPhotoSphereViewer
       ref={photoSphereRef}
       src={panoPhoto}
-      littlePlanet={true}
       height={"100vh"}
       width={"100%"}
-      autorotateSpeed={"2rpm"}
+      littlePlanet={true}
+      // plugins={plugins}
       navbar={[
         {
           id: "my-button",

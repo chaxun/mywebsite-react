@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./Portfolio.module.css";
@@ -8,6 +9,39 @@ import shang1 from "../../photos/shang.jpg";
 
 export default function Portolio() {
   const navigate = useNavigate();
+
+  const breakpoint = 1200;
+  const [width, setWidth] = useState(window.innerWidth);
+  const [cvUrl, setCvUrl] = useState(null);
+
+  const readCvUrl = async () => {
+    const res = await axios
+      .get("https://api.chaxuniverse.com/cv/get", {
+        headers: { Accept: "application/octet-stream" },
+      })
+      .catch((error) => console.log(error));
+    const bytes = atob(res.data);
+    let length = bytes.length;
+    let out = new Uint8Array(length);
+    while (length--) {
+      out[length] = bytes.charCodeAt(length);
+    }
+    let blob = new Blob([out], { type: "application/pdf" });
+    let fileURL = window.URL.createObjectURL(blob);
+    setCvUrl(fileURL);
+  };
+
+  useEffect(() => {
+    if (width < breakpoint) {
+      readCvUrl();
+    }
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, [width]);
+
   const handleClick = () => {
     navigate("/shangren/cv");
   };
@@ -124,12 +158,21 @@ export default function Portolio() {
         <hr />
 
         <p className="w3-large w3-text-theme">
-          <span className="hover" onClick={handleClick}>
+          {width > breakpoint ? (
+            <span className="hover" onClick={handleClick}>
+              <b>
+                <FontIcon icon="fa-eye" />
+                View My CV
+              </b>
+            </span>
+          ) : (
             <b>
               <FontIcon icon="fa-eye" />
-              View My CV
+              <a href={cvUrl} download="cv">
+                Download My CV
+              </a>
             </b>
-          </span>
+          )}
         </p>
       </div>
 

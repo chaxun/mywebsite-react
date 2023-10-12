@@ -11,7 +11,6 @@ const Gwen = React.lazy(() => import("./routes/Gwen"));
 const Shang = React.lazy(() => import("./routes/Shang"));
 const ShangRutgers = React.lazy(() => import("./routes/ShangRutgers"));
 const ShangCV = React.lazy(() => import("./routes/ShangCV"));
-const JohnsonParkPano = React.lazy(() => import("./routes/JohnsonPark"));
 
 const titles = {
   "/me": "My Homepage",
@@ -81,7 +80,6 @@ export default function App() {
       <Route path="/shangren" element={<Shang />} />
       <Route path="/shangren/rutgers" element={<ShangRutgers />} />
       <Route path="/shangren/cv" element={<ShangCV />} />
-      <Route path="/johnson_park" element={<JohnsonParkPano />} />
       <Route path="*" element={<Main />} />
     </Routes>
   );
