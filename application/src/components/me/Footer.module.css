@@ -1,0 +1,29 @@
+footer {
+  display: none;
+}
+
+a.hover {
+  text-decoration: none;
+}
+a.hover:hover {
+  text-decoration: underline;
+}
+
+.icon {
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+@media only screen and (min-width: 800px) {
+  footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    background-color: #80d000;
+    padding: 3px;
+    color: white;
+  }
+}

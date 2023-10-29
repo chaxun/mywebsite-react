@@ -71,7 +71,7 @@ export class MyWebsiteStack extends Stack {
     );
 
     new s3_deploy.BucketDeployment(this, "SiteDeployment", {
-      sources: [s3_deploy.Source.asset("../application/build")],
+      sources: [s3_deploy.Source.asset("../application/dist")],
       destinationBucket: siteBucket,
       distribution: siteDistribution,
       distributionPaths: ["/*"],

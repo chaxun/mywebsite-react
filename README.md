@@ -5,7 +5,7 @@
 ```bash
 cd application/
 npm install
-npm start
+npm run dev
 ```
 
 ## Deploy on AWS

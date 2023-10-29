@@ -1,0 +1,8 @@
+.column {
+  width: 33.33%;
+}
+
+.column > img {
+  width: 100%;
+  margin-bottom: 6px;
+}

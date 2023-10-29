@@ -1,0 +1,37 @@
+div.card {
+  padding: 6%;
+  border-radius: 12px;
+}
+
+div.smallCard {
+  padding: 8%;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #80d000;
+  color: white;
+  font-size: xx-large;
+}
+div.smallCard:hover {
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+div.smallCard:active {
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transform: translateY(0.5px);
+}
+
+img.gif {
+  width: 100%;
+}
+
+div.box {
+  text-align: center;
+  padding: 10%;
+}
+
+@media only screen and (min-width: 800px) {
+  img.gif {
+    padding-top: 20px;
+  }
+}
