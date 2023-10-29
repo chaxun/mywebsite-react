@@ -42,7 +42,7 @@ export default function App() {
     }
     const path = window.location.pathname || "/";
     const body = { ip: res.data.ip, path: path };
-    // await axios.post("https://api.chaxuniverse.com/location/save", body);
+    await axios.post("https://api.chaxuniverse.com/location/save", body);
   };
   useEffect(() => {
     const lanStorage = sessionStorage.getItem("lan");
