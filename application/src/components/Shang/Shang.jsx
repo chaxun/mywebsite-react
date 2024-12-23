@@ -1,6 +1,7 @@
 import Background from "./Background";
 import Portolio from "./Portfolio";
 import Interests from "./Interests";
+import Employment from "./Employment";
 import Education from "./Education";
 import Publications from "./Publications";
 import classes from "./Shang.module.css";
@@ -21,6 +22,7 @@ const Shang = () => {
               </div>
               <div className="w3-twothird">
                 <Interests />
+                <Employment />
                 <Education />
                 <Publications />
               </div>

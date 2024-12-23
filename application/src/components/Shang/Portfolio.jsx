@@ -61,26 +61,26 @@ export default function Portolio() {
       <div className="w3-container">
         <p>
           <FontIcon
-            icon="fa-baby"
+            icon="fa-child-reaching"
             onClick={() => {
               setIsBaby(!isBaby);
             }}
-            shake={isBaby}
+            bounce={isBaby}
           />
-          PhD Candidate in Physics
+          Postdoc in Physics
         </p>
         <p>
           <FontIcon icon="fa-house" />
-          New Jersey, USA
+          California, USA
         </p>
         <p>
           <FontIcon icon="fa-envelope" />
           <a
-            href="mailto:shangren@physics.rutgers.edu"
+            href="mailto:sren2@lbl.gov"
             target="_blank"
             rel="noopener noreferrer"
           >
-            shangren@physics.rutgers.edu
+            sren2@lbl.gov
           </a>
         </p>
         <hr />
@@ -152,7 +152,14 @@ export default function Portolio() {
         <div className="w3-light-grey w3-round-xlarge">
           <div
             className="w3-round-xlarge w3-blue"
-            style={{ height: "24px", width: "20%" }}
+            style={{ height: "24px", width: "18%" }}
+          />
+        </div>
+        <p>Japanese</p>
+        <div className="w3-light-grey w3-round-xlarge">
+          <div
+            className="w3-round-xlarge w3-blue"
+            style={{ height: "24px", width: "2%" }}
           />
         </div>
         <hr />

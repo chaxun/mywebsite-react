@@ -8,6 +8,8 @@ function FontIcon(props) {
       icon={props.icon}
       onClick={props.onClick}
       shake={props.shake}
+      bounce={props.bounce}
+      pull={props.pull}
       className={classes}
       fixedWidth
     />

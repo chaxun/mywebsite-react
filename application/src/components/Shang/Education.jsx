@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceGrinSquintTears } from "@fortawesome/free-regular-svg-icons";
-
 import classes from "./Education.module.css";
 import FontIcon from "../UI/FontIcon/FontIcon";
 
@@ -33,7 +30,7 @@ const Education = () => {
               setIsHoverPano(false);
             }}
           >
-            <FontAwesomeIcon
+            <FontIcon
               icon="fa-panorama"
               pull="right"
               shake={isHoverPano}
@@ -43,9 +40,9 @@ const Education = () => {
         </h5>
         <h6 className="w3-text-blue">
           <FontIcon icon="fa-calendar-days" />
-          2019.09 - current
+          2019.09 - 2024.07
         </h6>
-        <p>抱紧范德彪的大腿中...</p>
+        <p>抱紧范德彪的大腿</p>
         <hr />
       </div>
 
@@ -74,8 +71,8 @@ const Education = () => {
         <p>
           A <strong>MISERABLE</strong> year without any offer from graduate
           schools
-          <FontAwesomeIcon
-            icon={faFaceGrinSquintTears}
+          <FontIcon
+            icon={["far", "fa-face-grin-squint-tears"]}
             onClick={() => setIsTears(!isTears)}
             bounce={isTears}
             className={classes.tears}
@@ -97,7 +94,9 @@ const Education = () => {
           science
         </p>
       </div>
+
       <br />
+
     </div>
   );
 };

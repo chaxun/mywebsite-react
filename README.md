@@ -33,6 +33,16 @@ cd infrastructure/
 cdk destroy
 ```
 
+## Update dependencies
+
+```bash
+npm outdated
+npm update
+cdk diff
+cdk synth
+cdk deploy
+```
+
 ### Notes
 
 - Update CNAME records on the domain registrar by hand:
