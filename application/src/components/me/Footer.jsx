@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Divider, Grid, Link } from "@mui/material";
+import { Grid2, Link } from "@mui/material";
 
 import classes from "./Footer.module.css";
 
@@ -9,8 +9,8 @@ const Footer = (props) => {
   return (
     <footer>
       {lanToggle === 1 ? (
-        <Grid container order="row">
-          <Grid item xs={5} container justifyContent="center">
+        <Grid2 container order="row" sx={{ justifyContent: "space-around" }}>
+          <Grid2>
             <FontAwesomeIcon icon="fa-envelope" className={classes.icon} />
             {data.email}
             <Link
@@ -21,11 +21,8 @@ const Footer = (props) => {
             >
               chaxuniverse@gmail.com
             </Link>
-          </Grid>
-          <Grid item xs={2} container justifyContent="center">
-            <Divider orientation="vertical" />
-          </Grid>
-          <Grid item xs={5} container justifyContent="center">
+          </Grid2>
+          <Grid2>
             <FontAwesomeIcon
               icon={["fab", "bilibili"]}
               className={classes.icon}
@@ -37,10 +34,10 @@ const Footer = (props) => {
             >
               lalala2046
             </Link>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       ) : (
-        <Grid container justifyContent="center">
+        <Grid2 container sx={{ justifyContent: "center" }}>
           <FontAwesomeIcon icon="fa-envelope" className={classes.icon} />
           {data.email}
           <Link
@@ -51,7 +48,7 @@ const Footer = (props) => {
           >
             chaxuniverse@gmail.com
           </Link>
-        </Grid>
+        </Grid2>
       )}
     </footer>
   );

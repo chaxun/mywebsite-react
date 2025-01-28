@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { Box, Container, CssBaseline, Grid, alpha } from "@mui/material";
+import { Box, Container, CssBaseline, Grid2, Grid, alpha } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import classes from "./Main.module.css";
@@ -27,27 +27,27 @@ const Main = () => {
         <CssBaseline />
         <Box sx={{ bgcolor: "green.light" }} className={classes.outer}>
           <Container maxWidth="md">
-            <Grid
+            <Grid2
               container
               direction="column"
               className={`font-effect-fire-animation ${classes.grid}`}
             >
-              <Grid item xs>
+              <Grid2 size="grow">
                 <Container>
                   <Link to="/me">Me</Link>
                 </Container>
-              </Grid>
-              <Grid item xs>
+              </Grid2>
+              <Grid2 size="grow">
                 <Container>
                   <Link to="/gwen">My Cat</Link>
                 </Container>
-              </Grid>
-              <Grid item xs>
+              </Grid2>
+              <Grid2 size="grow">
                 <Container>
                   <Link to="/shangren">My Roommate</Link>
                 </Container>
-              </Grid>
-            </Grid>
+              </Grid2>
+            </Grid2>
           </Container>
         </Box>
       </ThemeProvider>

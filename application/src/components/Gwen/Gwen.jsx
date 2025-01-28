@@ -1,8 +1,13 @@
+import { useState } from "react";
 import {
   Box,
+  Backdrop,
+  Card,
+  CardActionArea,
+  CardMedia,
   Container,
   CssBaseline,
-  Grid,
+  Grid2,
   Typography,
   alpha,
 } from "@mui/material";
@@ -28,6 +33,30 @@ import c3 from "../../photos/c3.jpg";
 import c4 from "../../photos/c4.jpg";
 import c5 from "../../photos/c5.jpg";
 
+const imageDict = {
+  1: a1,
+  2: a2,
+  3: a3,
+  4: a4,
+  5: a5,
+  6: a6,
+  7: b1,
+  8: b2,
+  9: b3,
+  10: b4,
+  11: b5,
+  12: b6,
+  13: c1,
+  14: c2,
+  15: c3,
+  16: c4,
+  17: c5,
+};
+
+const col1 = [1, 2, 3, 4, 5, 6];
+const col2 = [7, 8, 9, 10, 11, 12];
+const col3 = [13, 14, 15, 16, 17];
+
 const yellow = "#ffffe0";
 const black = "#000000";
 const defaultTheme = createTheme({
@@ -44,63 +73,125 @@ const defaultTheme = createTheme({
   },
 });
 
-const Gwen = () => {
+const ClickableImage = ({ imageIdx, setOpen, setImageIdx }) => {
+  const handleClick = () => {
+    setImageIdx(imageIdx);
+    setOpen(true);
+  };
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <Box sx={{ bgcolor: "yellow.light", pt: 8, pb: 6 }}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h3"
-            align="center"
-            color="text.light"
-            fontFamily="Righteous"
-            gutterBottom
-          >
-            <b>Gwen</b>
-          </Typography>
-          <Typography
-            variant="h4"
-            align="center"
-            color="text.light"
-            fontFamily="Roboto"
-            paragraph
-          >
-            <b>格猫的日常</b>
-          </Typography>
-        </Container>
-      </Box>
-      <Box sx={{ bgcolor: "yellow.light" }}>
-        <Container maxWidth="xl" style={{ paddingBottom: "100px" }}>
-          <Grid container direction="row" spacing={2}>
-            <Grid item xs className={classes.column}>
-              <img src={a1} />
-              <img src={a2} />
-              <img src={a3} />
-              <img src={a4} />
-              <img src={a5} />
-              <img src={a6} />
-            </Grid>
-            <Grid item xs className={classes.column}>
-              <img src={b1} />
-              <img src={b2} />
-              <img src={b3} />
-              <img src={b4} />
-              <img src={b5} />
-              <img src={b6} />
-            </Grid>
-            <Grid item xs className={classes.column}>
-              <img src={c1} />
-              <img src={c2} />
-              <img src={c3} />
-              <img src={c4} />
-              <img src={c5} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </ThemeProvider>
+    <Card sx={{ mt: 1, borderRadius: 3 }}>
+      <CardActionArea onClick={handleClick}>
+        <CardMedia component="img" image={imageDict[imageIdx]} alt="Image" />
+      </CardActionArea>
+    </Card>
+  );
+};
+
+const ImageBackdrop = ({ setOpen, open, imageIdx }) => {
+  const [width, setWidth] = useState(0);
+  return (
+    <Backdrop
+      sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
+      open={open}
+      onClick={() => {
+        setOpen(false);
+      }}
+    >
+      <Box
+        component="img"
+        src={imageDict[imageIdx]}
+        onLoad={(e) => {
+          setWidth(e.target.naturalWidth * 1.2);
+        }}
+        sx={{
+          borderRadius: 3,
+          width: { width },
+          maxWidth: "100%",
+        }}
+      />
+    </Backdrop>
+  );
+};
+
+const Gwen = () => {
+  const [open, setOpen] = useState(false);
+  const [imageIdx, setImageIdx] = useState(1);
+
+  return (
+    <>
+      <ImageBackdrop setOpen={setOpen} open={open} imageIdx={imageIdx} />
+
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <Box sx={{ bgcolor: "yellow.light", pt: 8, pb: 6 }}>
+          <Container maxWidth="sm">
+            <Typography
+              component="h1"
+              variant="h3"
+              align="center"
+              color="text.light"
+              fontFamily="Righteous"
+              gutterBottom
+            >
+              <b>Gwen</b>
+            </Typography>
+            <Typography
+              variant="h4"
+              align="center"
+              color="text.light"
+              fontFamily="Roboto"
+            >
+              <b>格猫的日常</b>
+            </Typography>
+          </Container>
+        </Box>
+        <Box sx={{ bgcolor: "yellow.light" }}>
+          <Container maxWidth="xl" style={{ paddingBottom: "100px" }}>
+            <Grid2
+              container
+              direction="row"
+              spacing={2}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Grid2 size="grow" className={classes.column}>
+                {col1.map((item, index) => (
+                  <ClickableImage
+                    key={index}
+                    imageIdx={item}
+                    setOpen={setOpen}
+                    setImageIdx={setImageIdx}
+                  />
+                ))}
+              </Grid2>
+              <Grid2 size="grow" className={classes.column}>
+                {col2.map((item, index) => (
+                  <ClickableImage
+                    key={index}
+                    imageIdx={item}
+                    setOpen={setOpen}
+                    setImageIdx={setImageIdx}
+                  />
+                ))}
+              </Grid2>
+              <Grid2 size="grow" className={classes.column}>
+                {col3.map((item, index) => (
+                  <ClickableImage
+                    key={index}
+                    imageIdx={item}
+                    setOpen={setOpen}
+                    setImageIdx={setImageIdx}
+                  />
+                ))}
+              </Grid2>
+            </Grid2>
+          </Container>
+        </Box>
+      </ThemeProvider>
+    </>
   );
 };
 

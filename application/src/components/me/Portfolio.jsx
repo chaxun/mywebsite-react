@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Box, Card, Grid, Typography } from "@mui/material";
+import { Box, Card, Grid2, Typography } from "@mui/material";
 
 import classes from "./Portfolio.module.css";
 import gwen from "../../photos/gifs/gwen.gif";
@@ -29,11 +29,11 @@ const Portfolio = (props) => {
   }, []);
 
   return (
-    <Grid container direction="column" spacing={width > breakwidth ? 8 : 4}>
-      <Grid item>
+    <Grid2 container direction="column" spacing={width > breakwidth ? 8 : 4}>
+      <Grid2>
         <Card className={classes.card} sx={{ boxShadow: 3 }}>
-          <Grid container direction={width > breakwidth ? "row" : "column"}>
-            <Grid item xs={4}>
+          <Grid2 container direction={width > breakwidth ? "row" : "column"}>
+            <Grid2 size={width > breakwidth ? 4 : "grow"}>
               <img
                 className={classes.gif}
                 src={gif}
@@ -45,8 +45,8 @@ const Portfolio = (props) => {
                   setGif(gwen1);
                 }}
               />
-            </Grid>
-            <Grid item xs={8}>
+            </Grid2>
+            <Grid2 size={width > breakwidth ? 8 : "grow"}>
               <Box className={classes.box}>
                 <Typography variant="h4" gutterBottom>
                   {data.name}
@@ -61,18 +61,18 @@ const Portfolio = (props) => {
                   {data.experience}
                 </Typography>
               </Box>
-            </Grid>
-          </Grid>
+            </Grid2>
+          </Grid2>
         </Card>
-      </Grid>
+      </Grid2>
 
-      <Grid item marginBottom={2}>
-        <Grid
+      <Grid2 marginBottom={2}>
+        <Grid2
           container
           direction={width > breakwidth ? "row" : "column"}
           spacing={width > breakwidth ? 2 : 0}
         >
-          <Grid item xs={6}>
+          <Grid2 size="grow">
             <Card
               onClick={props.toggleOnSelectEducation}
               className={classes.smallCard}
@@ -84,8 +84,8 @@ const Portfolio = (props) => {
               />
               {data.education}
             </Card>
-          </Grid>
-          <Grid item xs={6}>
+          </Grid2>
+          <Grid2 size="grow">
             <Card
               onClick={props.toggleOnSelectGitHub}
               className={classes.smallCard}
@@ -97,10 +97,10 @@ const Portfolio = (props) => {
               />
               GitHub
             </Card>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+          </Grid2>
+        </Grid2>
+      </Grid2>
+    </Grid2>
   );
 };
 

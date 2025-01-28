@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Container, CssBaseline, Grid } from "@mui/material";
+import { Box, Container, CssBaseline, Grid2, Grid } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import classes from "./Me.module.css";
@@ -38,8 +38,8 @@ const Me = (props) => {
       <Box sx={{ bgcolor: "grey.light" }} className={classes.outer}>
         <Container maxWidth="xxl" className={classes.header}>
           {pageToggle !== "main" ? (
-            <Grid container>
-              <Grid item xs={6} container justifyContent="flex-start">
+            <Grid2 container sx={{ justifyContent: "space-between" }}>
+              <Grid2>
                 <Toggle className={classes.toggle} onClick={toggleOnSelectMain}>
                   {data.mainpage}
                 </Toggle>
@@ -57,19 +57,19 @@ const Me = (props) => {
                 >
                   {data.github}
                 </Toggle>
-              </Grid>
-              <Grid item xs={6} container justifyContent="flex-end">
+              </Grid2>
+              <Grid2>
                 <Toggle className={classes.toggle} onClick={toggleOnClick}>
                   {data.language}
                 </Toggle>
-              </Grid>
-            </Grid>
+              </Grid2>
+            </Grid2>
           ) : (
-            <Grid container justifyContent="flex-end">
+            <Grid2 container sx={{ justifyContent: "flex-end" }}>
               <Toggle className={classes.toggle} onClick={toggleOnClick}>
                 {data.language}
               </Toggle>
-            </Grid>
+            </Grid2>
           )}
         </Container>
         <Container maxWidth="md" className={classes.main}>
